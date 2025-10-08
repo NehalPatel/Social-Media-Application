@@ -11,6 +11,7 @@ const UserFollow = ({ person }) => {
     const [following, setFollowing] = useState(person.followers.includes(user._id));
 
     const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+    const serverStatic = process.env.REACT_APP_STATIC_FOLDER;
 
 
     const handleFollow = () => {
@@ -24,7 +25,7 @@ const UserFollow = ({ person }) => {
         <div className="follower">
 
             <div>
-                <img src={person.profilePicture ? serverPublic + person.profilePicture : serverPublic + "defaultProfile.png"} alt="" className='followerImg' />
+                <img src={person.profilePicture ? serverPublic + person.profilePicture : serverStatic + "defaultProfile.png"} alt="" className='followerImg' />
                 <div className="name">
                     <span>{person.firstname}</span>
                     <span>@{person.firstname}  {person.lastname}</span>

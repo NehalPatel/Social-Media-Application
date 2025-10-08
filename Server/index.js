@@ -15,7 +15,8 @@ const app = express();
 
 // to serve images for public (public folder)
 app.use(express.static('public'));
-app.use('/images', express.static('public/images'));
+app.use('/images', express.static('public/uploads')); // user uploaded images
+app.use('/static', express.static('public/static')); // static application images
 
 
 // MiddleWare
