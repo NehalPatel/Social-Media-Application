@@ -6,6 +6,7 @@ import Like from '../../Img/like.png';
 import Notlike from '../../Img/notlike.png';
 import { useSelector } from 'react-redux';
 import { likePost, deletePost } from '../../api/PostRequest';
+import CommentList from '../CommentList/CommentList';
 
 
 
@@ -14,6 +15,8 @@ const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData)
   const [liked, setLiked] = useState(data.likes.includes(user._id))
   const [likes, setLikes] = useState(data.likes.length)
+  const [commentCount, setCommentCount] = useState(0)
+  const [showComments, setShowComments] = useState(false)
 
 
   const handleLike = () => {
@@ -23,8 +26,7 @@ const Post = ({ data }) => {
   }
 
   const handleComment = () => {
-    // For now, show an alert. In a full implementation, this would open a comment modal
-    alert("Comment feature coming soon! 💬");
+    setShowComments(!showComments);
   }
 
   const handleShare = () => {
@@ -79,12 +81,25 @@ const Post = ({ data }) => {
         <img src={Share} alt="" style={{ cursor: "pointer" }} onClick={handleShare} />
       </div>
 
-      <span style={{ color: "var(--gray)", fontSize: '14px' }}>{likes} likes</span>
+      <div className="post-stats">
+        <span style={{ color: "var(--gray)", fontSize: '14px' }}>{likes} likes</span>
+        {commentCount > 0 && (
+          <span style={{ color: "var(--gray)", fontSize: '14px', marginLeft: '12px' }}>
+            {commentCount} {commentCount === 1 ? 'comment' : 'comments'}
+          </span>
+        )}
+      </div>
 
       <div className="detail">
         <span> <b>{data.name}</b> </span>
         <span>{data.desc}</span>
       </div>
+
+      {/* Comment Section */}
+      <CommentList 
+        postId={data._id} 
+        onCommentCountChange={setCommentCount}
+      />
 
     </div>
   )

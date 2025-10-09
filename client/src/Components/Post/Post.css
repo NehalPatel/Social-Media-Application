@@ -44,3 +44,10 @@
     background-color: rgba(255, 0, 0, 0.2);
     transform: scale(1.1);
 }
+
+.post-stats {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
