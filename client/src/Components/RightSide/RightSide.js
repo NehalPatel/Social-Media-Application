@@ -7,6 +7,7 @@ import Comment from '../../Img/comment.png';
 import TrendCard from '../TrendCard/TrendCard';
 import ShareModal from '../ShareModal/ShareModal';
 import { Link } from 'react-router-dom';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const RightSide = () => {
 
@@ -16,9 +17,7 @@ const RightSide = () => {
         <div className='RightSide'>
             <div className="navIcons">
 
-                <Link to='../home'>
-                    <img src={Home} alt="" />
-                </Link>
+                <ThemeToggle />
 
                 <SettingsOutlinedIcon />
                 <img src={Noti} alt="" />
