@@ -4,7 +4,7 @@ import Home from '../../Img/home.png';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Noti from '../../Img/noti.png';
 import Comment from '../../Img/comment.png';
-import TrendCard from '../TrendCard/TrendCard';
+import QuickActionsCard from '../QuickActionsCard/QuickActionsCard';
 import ShareModal from '../ShareModal/ShareModal';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -24,7 +24,7 @@ const RightSide = () => {
                 <img src={Comment} alt="" />
             </div>
 
-            <TrendCard />
+            <QuickActionsCard />
 
             <div className="button rg-button" onClick={() => setModalOpened(true)}>
                 Share
